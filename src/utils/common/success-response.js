@@ -1,5 +1,3 @@
-const { exitOnError } = require("winston")
-
 const success={
     success : true,
     message: 'Successfully completed the request',
@@ -7,3 +5,4 @@ const success={
     error:{}
 }
 module.exports=success;
+

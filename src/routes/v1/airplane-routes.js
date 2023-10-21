@@ -12,5 +12,11 @@ router.post('/',
     Airplanecontroller.createAirplane
 )
 
+// api/v1/airplanes GET
+router.get('/' , Airplanecontroller.getAirplanes)
+
+
+// api/v1/airplanes/:id GET
+router.get('/:id', Airplanecontroller.getAirplane)
 
 module.exports=router
