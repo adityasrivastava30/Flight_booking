@@ -32,3 +32,5 @@ module.exports = (sequelize, DataTypes) => {
   });
   return Airplane;
 }; 
+//added city models using commands  npx sequelize model:generate --name  City --attributes name:string
+//npx sequelize db:migrate
