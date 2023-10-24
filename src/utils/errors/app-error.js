@@ -1,15 +1,9 @@
-const { Model } = require("sequelize");
 
-class AppError extends Error  
-{
-    constructor(message , statusCode)
-    {
-            super(message);
-            this.statusCode=statusCode;
-            this.explanation=message;
-        
+class AppError extends Error {
+    constructor(message , statusCode){
+        super(message);
+        this.statusCode=statusCode;
+        this.explanation=message;
     }
 }
-module.exports={
-    AppError
-}
+module.exports =  AppError;
