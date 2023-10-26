@@ -20,4 +20,49 @@ async function createCity(req ,res )
     }
 }
 
-module.exports ={createCity}
+async function destroyCity(req , res)
+{
+    try{
+        const city=await CityService.destroyCity(req.params.id);
+        successResponse.data=city;
+        return res.status(StatusCodes.OK).json(successResponse);
+    }
+    catch(error){
+        ErrorResponse.error=error;
+        return res.status(error.statusCode).json(ErrorResponse);
+    }
+}
+
+async function getCity(req , res)
+{
+    try{
+        const city=await CityService.getCity();
+        successResponse.data=city;
+        return res.status(StatusCodes.OK).json(successResponse);
+    }
+    catch(error){
+        ErrorResponse.error=error
+        return res.status(error.statusCode).json(ErrorResponse);
+    }
+}
+
+async function getCityById(req , res)
+{
+    try{
+        const city=await CityService.getCityId(req.params.id);
+        successResponse.data=city;
+        return res.status(StatusCodes.OK).json(successResponse);
+    }
+    catch (error)
+    {
+        ErrorResponse.error=error
+        return res.status(error.statusCode).json(ErrorResponse)
+    }
+}
+
+module.exports ={
+     createCity,
+     destroyCity,
+     getCity,
+     getCityById
+ }

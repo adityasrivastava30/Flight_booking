@@ -27,8 +27,51 @@ async function createCity(data)
     }
 }
 
+async function destroyCity(id)
+{
+    try{
+        const city=await cityRepository.destroy(id);
+        return city;
+    }
+    catch(error)
+    {
+        if(error.statusCode == StatusCodes.NOT_FOUND)
+        {
+            throw new AppError('The city you requested is not present to delete' , error.statusCode);
+        }
+        throw new AppError("Cannot fetch data of the city" , StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+   
+}
 
+async function getCity()
+{
+
+    try{
+        const city=await cityRepository.getAll();
+        return city;
+    }
+    catch(error)
+    {
+        throw new AppError("Cannot fetch data of all the city" , StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
+
+async function getCityId(id)
+{
+    try{
+        const city=await cityRepository.get(id);
+        return city;
+    }
+    catch(error)
+    {
+        throw new AppError("Cannot fetch the city of the desired Id" , StatusCodes.NOT_FOUND);
+    }
+}
 
 module.exports={
-    createCity
+    createCity,
+    destroyCity,
+    getCity,
+    getCityId
 }
