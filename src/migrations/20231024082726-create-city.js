@@ -28,3 +28,5 @@ module.exports = {
     await queryInterface.dropTable('Cities');
   }
 };
+
+//  npx sequelize model:generate --name Flight --attributes flightNumber:string,airplaneId:integer,departureAirportId:integer,arrivalAirportId:integer,arrivalTime:date,departureTime:date,price:integer,boardingGate:string,totalSeats:integer 
